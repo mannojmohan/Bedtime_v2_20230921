@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load static %}
+
+<section class="flex flex-col min-h-screen gap-12 p-6 bg-base-100
+          sm:p-12 lg:p-20">
+    <div class="max-w-3xl mx-auto space-y-6 text-center md:space-y-8">
+        <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl
+              sm:leading-tight lg:text-6xl lg:leading-tight">Unite Family and Culture with Storytelling Magic
+        </h1>
+        <p class="max-w-md mx-auto text-base leading-7
+              text-base-content/90">Connect your child to your family and culture by using 
+              beatifully made children's books with narration by your family members - powered by AI.
+        </p>
+        <a href="/accounts/signup/" class="btn btn-lg btn-primary">Join our early access</a>
+
+    </div>
+    <img class="object-cover w-full max-w-7xl mx-auto h-128 rounded md:h-96" style="max-width: 80%; height: 600px; max-height: 50%;"
+        src="{% static 'images/landing/reading.jpg' %}" alt="Support image">
+</section>

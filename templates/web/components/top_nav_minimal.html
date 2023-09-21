@@ -1,0 +1,114 @@
+
+{% load i18n %}
+
+{% load static %}
+{% load wagtailcore_tags %}
+
+<header class="bg-base-100 ">
+    <nav class="flex items-center justify-between p-6 mx-auto max-w-7xl
+      lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+
+            <a href="{% url 'web:home' %}" class="-m-1.5 p-1.5 flex gap-2 md:gap-4 items-center"
+                >
+                <span class="sr-only">{{project_meta.NAME}}
+                </span>
+                <img class="w-12 h-12 rounded-full bg-base-300"
+                    src="{% static  'images/favicons/android-chrome-512x512.png' %}" alt="LOGO">
+                <h2 class="font-bold">{{project_meta.NAME}}
+                </h2>
+            </a>
+        </div>
+        <div class="flex lg:hidden">
+            <button type="button" class="-m-2.5 inline-flex items-center
+          justify-center rounded-md p-2.5 text-base-content/90" id="open-menu-mobile">
+                <span class="sr-only">Open main menu
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0
+            24 24" stroke-width="1.5" stroke="currentColor" class="w-6
+            h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75
+              6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <div class="">
+                {% if user.is_authenticated %}
+                {% else %}
+                <a href="{% url 'account_signup' %}" class="btn btn-sm btn-primary">
+                    {% translate "Sign Up" %}
+                </a>
+                <a href="{% url 'account_login' %}" class="btn btn-sm btn-outline ml-2">
+                    {% translate "Log In" %}
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path fill-rule="evenodd" d="M5 10a.75.75 0
+              01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5
+              3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0
+              11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" clip-rule="evenodd">
+                        </path>
+                    </svg>
+                </a>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </nav>
+    <div class="relative z-50 hidden" id="menu-mobile" data-theme="light">
+        <div class="fixed inset-y-0 right-0 z-10 w-full px-6 py-6
+        overflow-y-auto bg-base-200 sm:max-w-sm sm:ring-1
+        sm:ring-neutral/10 transform origin-right transition ease-in-out
+        duration-300">
+            <div class="flex items-center justify-between">
+                <a href="#" aria-label="home" class="-m-1.5 p-1.5">
+                    <span class="sr-only">{{project_meta.NAME}}
+                    </span>
+                    <img class="w-10 h-10 rounded-full bg-base-300"
+                        src="{% static  'images/favicons/android-chrome-512x512.png' %}" alt="LOGO">
+                </a>
+                <button type="button" class="-m-2.5 rounded-md p-2.5
+            text-base-content/80" id="close-menu-mobile">
+                    <span class="sr-only">Close menu
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0
+              0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6
+              h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6
+                18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flow-root mt-6">
+                <div class="-my-6 divide-y divide-neutral/10">
+                    <div class="py-6 space-y-2 flex flex-col">
+                        {% if user.is_authenticated %}
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="flex btn btn-sm btn-primary">
+                            {% translate "Sign Up" %}
+                        </a>
+                        <a href="{% url 'account_login' %}" class="flex btn btn-sm btn-outline">
+                            {% translate "Log In" %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script id="mobile-menu-script">var buttonOpen = document.getElementById("open-menu-mobile");
+    var buttonClose = document.getElementById("close-menu-mobile");
+    var menuMobile = document.getElementById("menu-mobile");
+
+    buttonOpen.addEventListener("click", () => {
+        menuMobile.classList.remove("hidden");
+    });
+    buttonClose.addEventListener("click", () => {
+        menuMobile.classList.add("hidden");
+    });
+</script>

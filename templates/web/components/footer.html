@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load static %}
+
+<footer class="p-10 bg-base-200 text-base-content sm:p-14 lg:p-20">
+    <div class="max-w-5xl mx-auto footer">
+        <div>
+            <img class="w-12 h-12 rounded-full bg-base-300" src="{% static  'images/favicons/android-chrome-512x512.png' %}"
+                alt="Logo">
+            <p class="text-base-content/90">
+            <p>{{project_meta.NAME}} &mdash; {% translate "Copyright" %} <span id="copyright-year">2023</span></p>
+            <br>All rights reserved.
+            </p>
+        </div>
+        <div>
+            <span class="footer-title">Features
+            </span>
+            <a class="link link-hover" href="/indian-classics">Indian Classics Collection
+            </a>
+        </div>
+        <div>
+            <span class="footer-title">Legal
+            </span>
+            <a class="link link-hover" href="/terms">Terms of use
+            </a>
+            </a>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('copyright-year').innerText = (new Date()).getFullYear();
+</script>

@@ -1,0 +1,33 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block body %}
+{% include 'web/components/hero.html' %}
+
+<script id="faq-script">
+
+    var faq = document.getElementById("faq-list");
+    for (let child of faq.children) {
+        child.addEventListener("click", (e) => {
+            let li = e.currentTarget;
+            let button = li.children[0];
+            let div = li.children[1];
+            if (button.getAttribute('aria-expanded') != "true") {
+                button.setAttribute('aria-expanded', true)
+                let svg = button.children[0]
+                svg.children[0].classList.add("rotate-180")
+                svg.children[1].classList.add("rotate-270")
+                div.style.opacity = 1;
+                div.style.maxHeight = "100%"
+            } else {
+                button.setAttribute('aria-expanded', false)
+                let svg = button.children[0]
+                svg.children[0].classList.remove("rotate-180")
+                svg.children[1].classList.remove("rotate-270")
+                div.style.opacity = 0;
+                div.style.maxHeight = "0px"
+            }
+        });
+    }
+</script>
+
+{% endblock %}

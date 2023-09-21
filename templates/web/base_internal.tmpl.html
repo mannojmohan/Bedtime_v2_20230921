@@ -1,0 +1,67 @@
+{% load static %}
+{% load meta_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charSet="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!--IE compatibility-->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!--Mobile friendly-->
+    {% block meta %}
+    {% if project_meta %}
+    {% with project_meta|get_title:page_title as title %}
+    {% with project_meta|get_description:page_description as description %}
+    {% with project_meta|get_image_url:page_image as image %}
+    <title>{% block page_title %}{{ title }}{% endblock %}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ project_meta.KEYWORDS }}">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ image }}">
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ page_url }}" />
+    <meta property="og:image" content="{{ image }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:site_name" content="{{ project_meta.NAME }}" />
+    <!-- <meta name = "Apple-mobile-web-app-capable" content = "yes"/> -->
+    <link rel="canonical" href="{% if page_canonical_url %}{{ page_canonical_url }}{% else %}{{ page_url }}{% endif %}">
+    {% endwith %}
+    {% endwith %}
+    {% endwith %}
+    {% endif %}
+    {% endblock meta %}
+    {% include 'web/components/favicon.html' %}
+    <link rel="stylesheet" href="{% static 'css/site-base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/site-tailwind.css' %}?version=3">
+    <link rel="stylesheet" href="{% static 'css/progress-bar.css' %}">
+    {% if GOOGLE_ANALYTICS_ID %}
+    {% include 'web/components/google_analytics.html' %}
+    {% endif %}
+    <script src="{% static 'js/site-bundle.js'%}"></script>
+    <script type="text/javascript">__cssFramework = 'tailwind';</script>
+    <script src="{% url 'javascript-catalog' %}"></script>
+    {% block page_head %}
+    {% endblock %}
+
+    {% block more_head %}
+    {% endblock %}
+
+</head>
+
+<body data-theme="light">
+    {{ user.email|json_script:'userEmail' }}
+    <div id="dashboard" class="h-full"></div>
+</body>
+
+<script src="{% static 'js/dashboard-bundle.js'%}?version=6"></script>
+
+</html>

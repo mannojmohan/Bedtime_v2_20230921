@@ -1,0 +1,34 @@
+default_context:
+  _pegasus_version: 2023.4.2
+  author_name: Justyna
+  ci: github_actions
+  css_framework: tailwind
+  css_theme: default
+  database: postgres
+  deploy_platform: google_cloud_run
+  description: Connect your child to your culture and family through the magic of
+    storytelling
+  domain_name: localhost:8000
+  email: justyna.ilczuk@gmail.com
+  enable_google_login: y
+  enable_twitter_login: n
+  front_end_framework: react
+  post_process: y
+  project_name: bedtime
+  project_slug: bedtime
+  stripe_payment_mode: checkout
+  subscription_billing_model: per_unit
+  use_2fa: y
+  use_api_keys: n
+  use_cloud_media_storage: n
+  use_debug_toolbar: y
+  use_docker: y
+  use_examples: y
+  use_impersonation: y
+  use_openai: n
+  use_sentry: y
+  use_subscriptions: y
+  use_teams: n
+  use_teams_example: n
+  use_translations: y
+  use_wagtail: y
