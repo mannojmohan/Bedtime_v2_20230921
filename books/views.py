@@ -9,12 +9,12 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.conf import settings
 from moviepy.editor import *
 from moviepy.audio import *
-import librosa
+# import librosa
 import tempfile
-import soundfile as sf
+# import soundfile as sf
 import os
 from django.core.files import File 
-import cv2 
+# import cv2 
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 from rest_framework import (
@@ -28,6 +28,9 @@ from django.http import JsonResponse
 from django.db import transaction
 from bedtime.pagination import CustomPagination
 from .models import Page
+import os
+os.environ["IMAGEIO_FFMPEG_EXE"] = "/usr/bin/ffmpeg"
+
 
 
 class BookViewSet(viewsets.ReadOnlyModelViewSet):

@@ -184,12 +184,17 @@ else:
             "ENGINE": "django.db.backends.postgresql_psycopg2",
             "NAME": env("DJANGO_DATABASE_NAME", default="bedtime"),
             "USER": env("DJANGO_DATABASE_USER", default="postgres"),
-            "PASSWORD": env("DJANGO_DATABASE_PASSWORD", default="111056"),
+            "PASSWORD": env("DJANGO_DATABASE_PASSWORD", default="123"),
             "HOST": env("DJANGO_DATABASE_HOST", default="localhost"),
             "PORT": env("DJANGO_DATABASE_PORT", default="5432"),
         }
     }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 # Auth / login stuff
 
 # Django recommends overriding the user model even if you don't think you need to because it makes

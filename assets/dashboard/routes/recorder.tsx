@@ -38,6 +38,8 @@ export default function BookPlayerPage() {
             }
         };
     }
+
+    
     return (
         <div className="tall:py-4 lg:p-8 w-full">
             <div className="px-4 pb-2 lg:p-0">
