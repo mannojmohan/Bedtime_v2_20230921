@@ -38,6 +38,7 @@ export default function Recorder({ book, setRecording, requestParams, requestNam
     const [uploadingMessage, setUploadingMessage] = useState("");
 
     const getMicrophonePermission = async () => {
+        console.log("ENTER")
         if ("MediaRecorder" in window) {
             try {
                 const streamData = await navigator.mediaDevices.getUserMedia({
@@ -46,8 +47,11 @@ export default function Recorder({ book, setRecording, requestParams, requestNam
                 });
                 setPermission(true);
                 setStream(streamData);
+
+                console.log("Permission   >>>>", streamData)
             } catch (err) {
                 alert(err.message);
+                console.log("Permission err  >>>>", err)
             }
         } else {
             alert("The MediaRecorder API is not supported in your browser.");

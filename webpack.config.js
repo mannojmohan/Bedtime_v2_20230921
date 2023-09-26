@@ -6,9 +6,9 @@ module.exports = {
   entry: {
     'site-base': './assets/site-base.js',  // base styles shared between frameworks
     'site-tailwind': './assets/site-tailwind.js',  // required for tailwindcss styles
-    site: './assets/javascript/site.js',  // global site javascript
+    site: './assets/dashboard/javascript/site.js',  // global site javascript
     'dashboard': './assets/dashboard/index.tsx',
-    app: './assets/javascript/app.js',  // logged-in javascript
+    app: './assets/dashboard/javascript/app.js',  // logged-in javascript
   },
   output: {
     path: path.resolve(__dirname, './static'),
