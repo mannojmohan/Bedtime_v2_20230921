@@ -208,6 +208,8 @@ export function BookPlayerInner({
     );
   }
 
+  
+
   return (
     <WallPaper
       sx={{
@@ -219,7 +221,7 @@ export function BookPlayerInner({
       <Widget
         className={`tall:p-4 p-2 justify-between main-widget flex flex-col   h-full`}
       >
-        <DisplayBook {...{ book, pageIndex }} />
+        <DisplayBook {...{ book, pageIndex ,videoRef}} />
         <div>
           <PageIndicator
             {...{
@@ -251,6 +253,7 @@ export function BookPlayerInner({
               autoplayPages,
               currentTime,
               setCurrentTime,
+              videoRef
             }}
           />
         </div>

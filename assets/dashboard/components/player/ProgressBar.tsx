@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import "../../../../static/css/progress-bar.css";
 
 import Box from "@mui/material/Box";
@@ -91,7 +91,10 @@ export default function ProgressBar({
   isLoading,
   stopRegion,
   autoplayPages,
-  setAutoplayPages, currentTime, setCurrentTime
+  setAutoplayPages, 
+  currentTime,
+  setCurrentTime,
+  videoRef
 }: ProgressBarProps) {
   const maxPage = Math.min(
     book.pages.length,
@@ -102,8 +105,15 @@ export default function ProgressBar({
   const [timeProgress, setTimeProgress] = React.useState(0);
   const playAnimationRef = useRef(0);
   const progressBarRef = useRef<HTMLInputElement>();
-  const videoRef = useRef<HTMLVideoElement>();
+  // const videoRef = useRef<HTMLVideoElement>();
   console.log(book);
+
+  useEffect(() => {
+    
+    videoRef.current.muted = true
+   
+  }, [])
+  
 
   const togglePlayPause = () => {
     const newPlaying = !playState.isPlaying;
@@ -111,6 +121,8 @@ export default function ProgressBar({
     // Get references to both audio and video elements
     const audioElement = audioRef.current;
     const videoElement = videoRef.current;
+
+    console.log("VIDEO >>>>>", videoElement)
   
     // If both audio and video elements exist
     if (audioElement && videoElement) {

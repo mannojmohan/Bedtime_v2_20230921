@@ -26,7 +26,7 @@ type DisplayBookProps = {
   pageIndex: number;
 };
 
-export default function DisplayBook({ book, pageIndex }: DisplayBookProps) {
+export default function DisplayBook({ book, pageIndex,videoRef }: DisplayBookProps) {
   const bookPages = book.pages[pageIndex][1];
   console.log(bookPages);
 
@@ -71,14 +71,15 @@ export default function DisplayBook({ book, pageIndex }: DisplayBookProps) {
           sx={{ flex: "1 1 300px", width: "100%" }}
         >
           <video
+          ref={videoRef}
             style={{
               maxWidth: "100%",
               maxHeight: "100%",
               height: "100%",
               objectFit: "contain",
             }}
-            autoPlay
-            controls
+            // autoPlay
+            // controls
           >
             <source src={bookPages} type="video/mp4" />
             Your browser does not support the video tag.
