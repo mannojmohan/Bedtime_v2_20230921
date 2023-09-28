@@ -33,7 +33,7 @@ export default function BookPlayer({ book }: { book: Book }) {
   if (Object.entries(book.narrations).length < 1) {
     return (
       <div>
-        Hi! Looks like we do not have any recordings associated with your book. Be
+        Hello! Looks like we do not have any recordings associated with your book. Be
         the first to record your voice and enjoy the book!
       </div>
     );
